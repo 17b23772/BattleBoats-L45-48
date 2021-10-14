@@ -1,7 +1,7 @@
 ## This is a Battleboats game, that uses boats placed on an 8 by 8 grid, placed by the player, that are later hit by a different player, if they guess the placement of the boats correcttly. 
 
 play = False
-playinput = str(input("Would you Like to Play. Enter Y or N"))
+playinput = str(input("Would you Like to Play. Enter Y or N: "))
 if playinput == "Y":
   play = True
 elif playinput == "N":
@@ -19,3 +19,4 @@ while play == True:
   print ("2. Continue Game")
   print ("3. Information")
   print ("4. Quit")
+  play = False
