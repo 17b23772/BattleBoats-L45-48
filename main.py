@@ -1,23 +1,32 @@
 ## This is a Battleboats game, that uses boats placed on an 8 by 8 grid, placed by the player, that are later hit by a different player, if they guess the placement of the boats correcttly. 
-#Deciding if the player wants to play. 
-play = False
-playinput = str(input("Would you Like to Play. Enter Yes or No: "))
-playinput = playinput.upper()
+
+#Defining the Variables
+gamestart = 0
+
 
 #Defining the subroutine information, holds the information on what the game is.
 def information():
   print("This is a Battleboats game. This game uses boats placed on an 8 by 8 grid, placed by the player, that are later hit by a different player, if they guess the placement of the boats correcttly. The game ends when one players boats are all destroyed.")
 
-#depending on the user input, a different output will be displayed, ie Y = Start the game.
-if playinput == "YES" or playinput == "Y":
-  play = True
-elif playinput == "NO" or playinput == "N":
+
+#Deciding if the player wants to play. 
+while gamestart == 0:
   play = False
-  ("\n")
-  print ("We hope you play another day")
-else:
-  ("\n")
-  print ("Please enter Y or N")
+  playinput = str(input("Would you Like to Play. Enter Yes or No: "))
+  playinput = playinput.upper()
+  #Depending on the user input, a different output will be displayed, ie Y = Start the game.
+  if playinput == "YES" or playinput == "Y":
+    play = True
+    gamestart += 1
+  elif playinput == "NO" or playinput == "N":
+    play = False
+    print ("We hope you play another day")
+    print ("\n")
+  else:
+    print ("Please enter Y or N")
+    print ("\n")
+
+
 #Checks if the play variable is true. If it is, game starts. Defined by the inputs above. 
 while play == True:
   ("\n")
