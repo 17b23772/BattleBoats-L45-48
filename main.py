@@ -40,11 +40,13 @@ while play == True:
   print ("4. Quit")
   print ("\n")
   print ("\n")
-  playchoice = str(input("What Number you like to choose: "))
+  playchoice = str(input("What Number would you like to choose: "))
   if playchoice == "1":
     print ("New Game!")
+
   elif playchoice == "2":
     print ("Continue Game!")
+    #need to find scy py and shut down code
   elif playchoice == "3":
     print ("-Here is the Information!-")
     print ("\n")
