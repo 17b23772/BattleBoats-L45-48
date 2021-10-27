@@ -1,7 +1,7 @@
 ## This is a Battleboats game, that uses boats placed on an 8 by 8 grid, placed by the player, that are later hit by a different player, if they guess the placement of the boats correcttly. 
 
 import sys
-
+from random import randint
 #Defining the Variables
 gamestart = 0
 
@@ -37,6 +37,9 @@ def displayboard(board):
     print("  ┼───┼───┼───┼───┼───┼───┼───┼───")
     print("8","│", board[8][0], "│", board[8][1], "│", board[8][2], "│", board[8][3], "│", board[8][4], "│", board[8][5], "│", board[8][6], "│", board[8][7])
 
+
+
+
 #Defining the subroutine information, holds the information on what the game is.
 def information():
   print("This is a Battleboats game. This game uses boats placed on an 8 by 8 grid, placed by the player, that are later hit by a different player, if they guess the placement of the boats correcttly. The game ends when one players boats are all destroyed.")
@@ -45,31 +48,37 @@ def grid():
   print ("Here is the grid you will be playing on!")
   print (board)
 def playerturn (board):
-  columninput = int(input("What Column would you like to go in:  "))
-  rowinput = int(input("What Row would you like to go in:  "))
-  if columninput == 1 and rowinput == 1:
-    board [1][0] = "X"
-    print (displayboard(board))
-
-    working = 0
+  boat_column = randint (1,8)
+  column = boat_column
+  print (column)
+  boat_row = randint (1,8)
+  row = boat_row
+  print (row)
+  columninput = int(input("What Column would you like to guess in:  "))
+  rowinput = int(input("What Row would you like to guess in:  "))
+  working = 0
+  if columninput == column and rowinput == row :
+    print ("Hit!")
+    board [column][row] = "X"
     while working == 0:
-      play = False
       playinput = str(input("Would you Like to Save. Enter Yes or No: "))
       playinput = playinput.upper()
       if playinput == "YES" or playinput == "Y":
-        play = True
         working += 1
-        file.open = ("games.csv", "w")
-          
+        file= open ("games.csv", "w")
+        board = str(board)
+        file.write (board)
+        file.close()
       elif playinput == "NO" or playinput == "N":
-        play = False
         print ("Continue Playing")
         working += 1
         print ("\n")
       else:
         print ("Please enter Y or N")
         print ("\n")
-
+  else:
+    print ("Oh No! You Missed!")
+    working += 1
 #Deciding if the player wants to play. 
 while gamestart == 0:
   play = False
